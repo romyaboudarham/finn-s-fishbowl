@@ -1,2 +1,2 @@
-# ignore all directories with the name node_modules
-node_modules/
+# ignore node_modules
+scenes/scene-1/node_modules/
