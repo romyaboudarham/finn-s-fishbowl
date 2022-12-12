@@ -1,5 +1,6 @@
-let playButton = document.getElementById('box');
+// var mover = document.querySelector("#mover");
 
-playButton.addEventListener('click', function (event) {
-    console.log('click!');
-});
+// mover.addEventListener("movingended", function(){
+//     AFRAME.utils.entity.setComponentProperty(this, "alongpath.curve", "#path2");
+//     AFRAME.utils.entity.setComponentProperty(this, "alongpath.dur", "20000");
+// });

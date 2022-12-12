@@ -1,44 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/takahirox/aframe-rain/master/build/aframe-rain.min.js"></script> 
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="start-button.js"></script>
+    <script>
+        function clickHandler() {
+            console.log("hi")
+            var camera = document.querySelector("#camera-rig");
+            AFRAME.utils.entity.setComponentProperty(camera, "alongpath.curve", "#track1");
+
+            // camera.addEventListener("click", function(){
+            //     AFRAME.utils.entity.setComponentProperty(this, "alongpath.curve", "#track1");
+            // });
+        }
+    </script>
 </head>
 <body>
-    <a-scene light="defaultLightsEnabled: false" fog="type: exponential; density: 0.05; color: #a58fc7;">
+    <a-scene cursor="rayOrigin: mouse">
         <a-assets>
-            <a-asset-item id="model" src="/assets/untitled.glb"></a-asset-item>
-            <a-asset-item id="scene" src="/assets/panic-scene.glb"></a-asset-item>
-            <a-asset-item id="ground" src="/assets/panic-ground.glb"></a-asset-item>
+            <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
         </a-assets>
-        <a-sky material="shader: gradientshader;
-                topColor:  #1f1f1f ;  
-                bottomColor:  #a58fc7"
-        ></a-sky> 
-        <!-- 1f1f1f -->
-        <!-- render-order="" -->
+        <!-- Environment -->
+        <a-entity id="enviro" position="0 -.001 0" environment="
+            preset: tron; 
+            fog: 0.4; 
+            ground: flat;
+            groundColor: #801282; 
+            groundColor2: #008eb7; 
+            groundTexture: walkernoise;
+            active: true;
+            skyType: gradient; 
+            skyColor: #801282; 
+            horizonColor: #1f1f1f;
+            flatShading: true; 
+            dressing: apparatus;
+            dressingColor: #3cf7ed; 
+            dressingScale: 0.2; 
+            dressingAmount: 200;
+            dressingOnPlayArea: 1; 
+            gridColor: #FFFF00">
+        </a-entity>
+        <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
 
-            
-        <!-- material="side:  back;  shader:  gradientshader;  npot:  true;  offset:  [object Object];  repeat:  [object Object];  topColor:  #070029;  bottomColor:  #1f1f1f" -->
-            
-        <!-- <a-light position="1.4 3.6 -5" type="directional" intensity="1" color="#00E6FF"></a-light> -->
-        <!-- <a-light type="ambient" intensity=".3" color="#00E6FF"></a-light> -->
-        <!-- <a-entity light="type: hemisphere; color: #000080; groundColor: #b9743c; intensity: 1"></a-entity> -->
-        <a-entity light="type: directional; 
-                intensity:  0.5;  
-                castShadow:  true; 
-                shadowCameraVisible: true;
-                shadowCameraRight: 40;
-                shadowCameraLeft: -40;
-                shadowCamera
-                color: #a58fc7;"
-            position="0 10.455 -104">
+        <!-- Camera -->
+        <!-- alongpath="curve: #track1; loop:false; dur:6000; delay:2000; triggerRadius:0.1; rotate:true;" -->
+        <a-entity id="camera-rig" position="0 1.6 0" look-controls>
+            <a-entity id="camera" camera look-controls>
+                <!-- Cursor -->
+                <a-entity cursor="fuse: true; fuseTimeout: 500"
+                          position="0 0 -1.5"
+                          geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05;"
+                          material="color: cyan; shader: flat"
+                          raycaster="objects: .clickable"
+                          animation="startEvents: fusing;
+                                    property: scale;
+                                    from: 1 1 1;
+                                    to: 0 0 0;
+                                    dur: 500">
+                    </a-animation>
+                </a-entity>
+            </a-entity>
+            </a-entity>
         </a-entity>
 
-        <a-entity gltf-model="#model" shadow="cast: true"></a-entity>
-        <a-entity gltf-model="#ground" shadow="cast: true"></a-entity>
+        <!-- Start dot -->
+        <a-sphere class="orb clickable" event-listener id="dot" color="#FFFF00" position="0 6 -6" radius="3" scale="1 1 .3" >
+        </a-sphere>
+
+        <!-- Countdown -->
+        <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.6 3.5 -7" scale="10 10 10"
+            animation__first="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+            dir: alternate; easing: linear; startEvents: countdown-begin" 
+            animation__second="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+            dir: alternate; easing: linear; startEvents: second"
+            animation__third="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+            dir: alternate; easing: linear; startEvents: third"
+            text-geometry=
+                "font: #optimerBoldFont;
+                height: 0.1; 
+                bevelEnabled: true; 
+                bevelSize: 0.02; 
+                bevelThickness: 0.02; 
+                value: 3"
+            material=
+                "color: #FFFF00;"
+            updater="">
+        </a-entity>
+
+        <!-- Instruction Text -->
+        <a-entity id="instruction" position="-3.9 1.6 -3.5" scale="1.1 1.1 1.1"
+            text-geometry=
+                "font: #optimerBoldFont;
+                height: 0.1; 
+                bevelEnabled: true; 
+                bevelSize: 0.02; 
+                bevelThickness: 0.02; 
+                value: Look at the dot to begin" 
+            material=
+                "color: #FFFF00;"
+            updater="">
+        </a-entity>
+
+        <!-- CAMERA RIG FOR TELEPORT-CONTROLS AND SUPER-HANDS -->
+        <!-- <a-entity id="cameraRig" alongpath="curve: #track1; loop: true; dur: 120000">
+            <a-entity id="head" progressive-controls="gazeMixin: mycursor; touchMixin: mytouch; override: true; objects: .obj, .button; maxLevel: point;">
+                <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5" class="left-controller"></a-entity>
+                <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5" class="right-controller"></a-entity>
+            </a-entity>
+        </a-entity> -->
+
     </a-scene>
 </body>
 </html>
