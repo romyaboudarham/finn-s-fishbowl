@@ -22,8 +22,8 @@
         </a-assets>
 
         <!-- 3D Models -->
-        <a-entity gltf-model="#model" shadow="cast: true"></a-entity>
-        <a-entity gltf-model="#ground" shadow="cast: true"></a-entity>
+        <a-entity gltf-model="#model" shadow="cast: true" scale=".8 .8 .8"></a-entity>
+        <a-entity gltf-model="#ground" shadow="cast: true" scale=".8 .8 .8"></a-entity>
 
         <!-- Environment -->
         <a-entity light="type: directional; 
@@ -58,7 +58,7 @@
 
         <a-draw-curve curveref="#track1" material="shader: line; color: red;"></a-draw-curve>
 
-        <a-entity id="camera-rig" position="0 1.6 15" look-controls >
+        <a-entity id="camera-rig" position="0 1.6 10" look-controls >
             <a-entity id="camera" camera look-controls 
                 alongpath="curve: #track1; loop:false; dur:1200;">
             
