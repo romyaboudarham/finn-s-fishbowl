@@ -20,8 +20,37 @@
             <p>
               Press play to begin
             </p>
-            <audio id="intro_audio" controls src="media/Ch1 - audio.mp3"></audio>
-              <a id="transcribe-btn" href="">Display audio transcription</a>
+            <audio id="intro_audio" controls src="media/Ch1-audio.mp3"></audio>
+              <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
+              <div id="transcription-box" style="display:none;">
+                <i>One</i> (take a step)
+                <br>
+                I'm ten years old. Which means I'm fully capable of walking home alone from my best friend's house.
+                <br>
+                <i>Two, three, four</i>
+                <br>
+                But I must admit. When it's dark out, I get a little scared and wish I had someone with me. Especially… when crossing the field… at night.
+                <br>
+                <i>Five, six, seven.</i>
+                <br>
+                The pond should be close now. It's the only thing between me and my exit. I can't see well when it's dark, so I need to count my steps correctly.
+                <br>
+                <i>Eight</i>
+                <br>
+                To calm myself down, I think about the fishies that rest in the water. The pond seems quiet and peaceful at night; it must be so cool to sleep in a leaf hammock under the stars.
+                <br>
+                <i>Nine, ten</i>
+                <br>
+                Sometimes, when I'm too deep in my imagination, I lose count.
+                <br>
+                <i>Eleven.</i>
+                <br>
+                Ah! Ten steps. Ten steps. It takes ten steps to get to the edge of the pond.
+                Must tread around the pond lightly now. My house is just up ahead after this last stretch of field. Ten more steps. Same as how I entered.
+                The lights are off. Phew. That means it's quiet.
+                <br>
+                <i>Please follow the red arrow to the right and click next for Chapter 2</i>
+              </div>
           </div>
           <div class="nav-btns">
             <a href="index.html" id="back-btn" class="rainbow">&#x2190; Home</a>

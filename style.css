@@ -120,6 +120,40 @@ p {
     100% { background-position: 0 0; }
 }
 
+#transcription-box {
+    height: 200px;
+    width: 400px;
+    overflow: auto;
+    background-color: white;
+    color: black;
+    /* scrollbar-base-color:gold; */
+    font-family:sans-serif;
+    padding:10px;
+    border:2px solid yellowgreen;
+    font-family: 'Annie Use Your Telescope';
+    font-size: 30px;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px solid yellowgreen;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: yellowgreen;  
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #88ba1c;  
+}
+
 /* canvas{
     background : black;
 
