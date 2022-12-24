@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        function clickHandler() {
+            var camera = document.querySelector("#camera-rig");
+            AFRAME.utils.entity.setComponentProperty(camera, "alongpath.curve", "#track1");
+        }
+    </script>
+</head>
+<body>
+    <a-scene cursor="rayOrigin: mouse" light="defaultLightsEnabled: false" fog="type: exponential; density: 0.05; color: #a58fc7;">
+        <a-assets>
+            <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
+            <a-asset-item id="field" src="gltf-files/panic-field-final.gltf"></a-asset-item>
+            <a-asset-item id="ground" src="gltf-files/panic-ground.gltf"></a-asset-item>
+            <a-asset-item id="loading-ground" src="gltf-files/loading-ground.gltf"></a-asset-item>
+            <audio id="Ch3-audio" src="../../media/Ch1-audio.mp3" preload="auto"></audio>
+        </a-assets>
+
+        <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity>
+
+        <a-sky material="shader: gradientshader;
+                topColor:  #1f1f1f ;  
+                bottomColor:  #a58fc7"
+        ></a-sky> 
+
+        <!-- Camera -->
+            <!-- alongpath="curve: #track1; loop:false; dur:6000; delay:2000; triggerRadius:0.1; rotate:true;" -->
+            <a-entity id="camera-rig" position="0 1.6 0" look-controls>
+                <a-entity id="camera" camera look-controls>
+                    <!-- Cursor -->
+                    <a-entity cursor="fuse: true; fuseTimeout: 500"
+                            position="0 0 -1.5"
+                            geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05;"
+                            material="color: cyan; shader: flat"
+                            raycaster="objects: .clickable"
+                            animation="startEvents: fusing;
+                                        property: scale;
+                                        from: 1 1 1;
+                                        to: 0 0 0;
+                                        dur: 500">
+                    </a-entity>
+                </a-entity>
+                </a-entity>
+            </a-entity>
+
+        <!-- <a-entity id="camera-rig" position="0 1.6 10" look-controls >
+            <a-entity id="camera" camera look-controls
+                alongpath="curve: #track1; loop:false; dur:1200;">
+            
+            </a-entity>
+        </a-entity> -->
+    
+
+        <a-entity id="scene1">
+            <a-entity light="type: directional; color: #FFF;" position="0 3 3"></a-entity>
+           <!-- Environment -->
+            <!-- <a-entity id="enviro" position="0 -.001 0" environment="
+                preset: tron; 
+                fog: 0.4; 
+                ground: flat;
+                groundColor: #801282; 
+                groundColor2: #008eb7; 
+                groundTexture: walkernoise;
+                active: true;
+                skyType: gradient; 
+                skyColor: #801282; 
+                horizonColor: #1f1f1f;
+                flatShading: true; 
+                dressing: apparatus;
+                dressingColor: #3cf7ed; 
+                dressingScale: 0.2; 
+                dressingAmount: 200;
+                dressingOnPlayArea: 1; 
+                gridColor: #FFFF00">
+            </a-entity> -->
+            <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
+
+            <!-- Start dot -->
+            <a-sphere class="orb clickable" event-listener id="dot" color="#8aecff" position="0 5 -6" radius="3" scale="1 1 .1" >
+            </a-sphere>
+
+            <!-- Ground -->
+            <a-entity id="loading-ground" gltf-model=#loading-ground shadow="cast: true" scale=".8 .8 .8"></a-entity>
+
+            <!-- Countdown -->
+            <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.6 3.5 -7" scale="10 10 10"
+                animation__first="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+                dir: alternate; easing: linear; startEvents: countdown-begin" 
+                animation__second="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+                dir: alternate; easing: linear; startEvents: second"
+                animation__third="property: scale; from: 10 10 10; to: 10.2 10.2 10.2; dur: 1000; 
+                dir: alternate; easing: linear; startEvents: third"
+                text-geometry=
+                    "font: #optimerBoldFont;
+                    height: 0.1; 
+                    bevelEnabled: true; 
+                    bevelSize: 0.02; 
+                    bevelThickness: 0.02; 
+                    value: 3"
+                material=
+                    "color: #8aecff;"
+                updater="">
+            </a-entity>
+
+            <!-- Instruction Text -->
+            <a-entity id="instruction" position="-3.9 1 -3.5" scale="1.1 1.1 1.1"
+                text-geometry=
+                    "font: #optimerBoldFont;
+                    height: 0.1; 
+                    bevelEnabled: true; 
+                    bevelSize: 0.02; 
+                    bevelThickness: 0.02; 
+                    value: Look at the dot to begin" 
+                material=
+                    "color: white;"
+                updater="">
+            </a-entity>
+
+        </a-entity>
+        
+        <a-entity id="scene2" visible="false">
+             <!-- Environment -->
+            <a-entity light="type: directional; 
+                    intensity:  0.5;  
+                    castShadow:  true; 
+                    shadowCameraVisible: true;
+                    shadowCameraRight: 40;
+                    shadowCameraLeft: -40;
+                    shadowCamera
+                    color: #a58fc7;"
+                position="0 10.455 -104">
+            </a-entity>
+
+            <!-- 3D Models -->
+            <a-entity id="field" gltf-model=#field shadow="cast: true" scale=".8 .8 .8"></a-entity>
+            <!-- <lp-plane id="sky" roughness="1" segments-height="90" segments-width="90" color="#000" rotation="-90 0 0" position="0 -3 0" width="100" height="100" max-amplitude="1 1 3" scale visible material low-poly-plane></lp-plane> -->
+            <a-entity id="ground" gltf-model=#ground shadow="cast: true" scale=".8 .8 .8"></a-entity>
+    
+            <!-- Track -->
+            <a-curve id="track1">
+                <a-curve-point id="checkpoint1a" position="0 1.6 10"></a-curve-point>
+                <a-curve-point id="checkpoint2a" position="0 1.8 9"></a-curve-point>
+                <a-curve-point id="checkpoint3a" position="0 1.6 8"></a-curve-point>
+                <a-curve-point id="checkpoint1a" position="0 1.8 7"></a-curve-point>
+                <a-curve-point id="checkpoint2a" position="0 1.6 6"></a-curve-point>
+                <a-curve-point id="checkpoint3a" position="0 1.8 5"></a-curve-point>
+                <a-curve-point id="checkpoint2a" position="0 1.6 4"></a-curve-point>
+                <a-curve-point id="checkpoint1a" position="0 1.8 3"></a-curve-point>
+                <a-curve-point id="checkpoint2a" position="0 1.6 2"></a-curve-point>
+                <a-curve-point id="checkpoint3a" position="0 1.8 1"></a-curve-point>
+            </a-curve>
+
+            <a-draw-curve curveref="#track1" material="shader: line; color: red;"></a-draw-curve>
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
