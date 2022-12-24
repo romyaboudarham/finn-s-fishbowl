@@ -10,7 +10,7 @@ function preload() {
 var socket = io.connect('//localhost:3000');
 socket.on('mysocket', function (data) {
     //log the data
-    console.log(data);
+    // console.log(data);
     //parse the data
     parse(data);
     //Jquery function to set text of H1 text to websocket data
@@ -27,40 +27,49 @@ let show = false;
 function parse(incoming) {
     if (incoming[0] == '/ground' && incoming[1] > 2000) {
         // pondSound.play();
-        pondSound.setVolume(.7);
+        // pondSound.setVolume(.7);
         show = true;
+    } else {
+        show = false;
     }
 }
 
-// MODIFY ME
 let pMapper;
-let quadMap, triMap, lineMap, maskMap;
+let quadMap;
+let fade;
+let fadeAmount = 10;
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
+    fade = 0
 
     // create mapper object
     pMapper = createProjectionMapper(this);
 
     // create mapping surfaces
-    // triMap = pMapper.createTriMap(300, 300);
-    quadMap = pMapper.createQuadMap(900, 900);
+    quadMap = pMapper.createQuadMap(pondImg.width, pondImg.height);
     quadMap.x -= quadMap.width / 2;
     quadMap.y -= quadMap.height / 2;
 
-    // lineMap = pMapper.createLineMap();
-
-    // // creates a black mask with 5 moveable points
-    // maskMap = pMapper.createMaskMap(5);
 }
 
 function draw() {
     background(0);
+    quadMap.clear();
 
     if (show) {
-        quadMap.clear();
+        tint(255, fade);
         quadMap.imageMode(CENTER);
         quadMap.image(pondImg, 0, 0);
+
+        // if (fade<0) fadeAmount=1; 
+        // if (fade>255) fadeAmount=-10; 
+        if (fade < 255) fade += fadeAmount; 
+    } else if (fade > 0) {
+        tint(255, fade);
+        quadMap.imageMode(CENTER);
+        quadMap.image(pondImg, 0, 0);
+        fade -= fadeAmount; 
     }
 }
 

@@ -16,7 +16,7 @@ const IPAddress outIp(192,168,1,106);        // remote IP of your computer
 const unsigned int outPort = 9999;          // remote port to receive OSC
 const unsigned int localPort = 8888;        // local port to listen for OSC packets (actually not used for sending)
 
-int del = 500;
+int del = 10;
 
 void setup() {
     Serial.begin(9600);
