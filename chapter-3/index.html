@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- a58fc7 -->
-    <a-scene rain="width: 60" cursor="rayOrigin: mouse" light="defaultLightsEnabled: false" fog="type: exponential; density: 0.08; color: #10454A;">
+    <a-scene cursor="rayOrigin: mouse" light="defaultLightsEnabled: false" fog="type: exponential; density: 0.08; color: #10454A;">
         <a-assets>
             <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="forest" src="https://ucarecdn.com/860deaf5-eb56-4b15-96dd-8d4b47d7cf26/forestfinal.gltf"></a-asset-item>
@@ -51,6 +51,7 @@
                                     from: 0 0 0;
                                     to: 1 1 1;
                                     dur: 500">
+                <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity>
                 </a-entity>
             </a-entity>
             </a-entity>
@@ -71,7 +72,6 @@
         <a-entity light="type: directional; 
                 intensity:  4;  
                 castShadow:  true; 
-                shadowCameraVisible: true;
                 shadowCameraRight: 100;
                 shadowCameraLeft: -100;
                 color: #c16ffb;"
@@ -82,7 +82,7 @@
         <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
 
         <!-- Countdown -->
-        <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.6 4.5 19" scale="8 8 8"
+        <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.6 4.5 17" scale="8 8 8"
             animation__first="property: scale; from: 8 8 8; to: 8.2 8.2 8.2; dur: 1000; 
             dir: alternate; easing: linear; startEvents: countdown-begin" 
             animation__second="property: scale; from: 8 8 8; to: 8.2 8.2 8.2; dur: 1000; 
@@ -102,11 +102,11 @@
         </a-entity>
 
         <!-- Start dot -->
-        <a-sphere class="clickable" event-listener id="dot" color="#8aecff" position="0 6.1 19" radius="3" scale=".4 .4 .05" >
+        <a-sphere class="clickable" event-listener id="dot" color="#8aecff" position="0 6.1 17" radius="3" scale=".4 .4 .05" >
         </a-sphere>
 
         <!-- Instruction Text -->
-        <a-entity id="instruction" position="-4 2.6 20.5" scale="1.1 1.1 1.1"
+        <a-entity id="instruction" position="-4 2.6 18.5" scale="1.1 1.1 1.1"
             text-geometry=
                 "font: #optimerBoldFont;
                 height: 0.1; 

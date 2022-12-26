@@ -62,12 +62,12 @@ function startScene2() {
 
 function disableDot() {
   dot.setAttribute('visible', 'false');
-  dot.setAttribute('position', '0 100 19');
+  dot.setAttribute('position', '0 100 17');
 }
 
 function enableDot() {
   dot.setAttribute('visible', 'true');
-  dot.setAttribute('position', '0 6.1 19');
+  dot.setAttribute('position', '0 6.1 17');
 }
 
 function resetCamera() {
