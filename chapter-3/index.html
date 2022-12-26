@@ -20,9 +20,16 @@
     <a-scene cursor="rayOrigin: mouse" light="defaultLightsEnabled: false" fog="type: exponential; density: 0.05; color: #a58fc7;">
         <a-assets>
             <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
-            <a-asset-item response-type="arraybuffer" id="forrest" src="gltf/forrest.gltf"></a-asset-item>
+            <!-- <a-asset-item response-type="arraybuffer" id="forrest" src="gltf/forrest.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="ground" src="gltf/panic-ground.gltf"></a-asset-item>
-            <a-asset-item response-type="arraybuffer" id="loading-ground" src="gltf/loading-ground.gltf"></a-asset-item>
+            <a-asset-item response-type="arraybuffer" id="loading-ground" src="gltf/loading-ground.gltf"></a-asset-item> -->
+
+            <a-asset-item id="forrest-obj" src="assets/forrest/forrest.obj"></a-asset-item>
+            <a-asset-item id="forrest-mtl" src="assets/forrest/forrest.mtl"></a-asset-item>
+            <a-asset-item id="loading-ground-obj" src="assets/loading-ground/loading-ground.obj"></a-asset-item>
+            <a-asset-item id="loading-ground-mtl" src="assets/loading-ground/loading-ground.mtl"></a-asset-item>
+            <a-asset-item id="forrest-ground-obj" src="assets/forrest-ground/forrest-ground.obj"></a-asset-item>
+            <a-asset-item id="forrest-ground-mtl" src="assets/forrest-ground/forrest-ground.mtl"></a-asset-item>
             <audio id="Ch3-audio" src="../media/Ch1-audio.mp3" preload="auto"></audio>
         </a-assets>
 
@@ -63,28 +70,7 @@
 
         <a-entity id="scene1">
             <a-entity light="type: directional; color: #FFF;" position="0 3 3"></a-entity>
-           <!-- Environment -->
-            <!-- <a-entity id="enviro" position="0 -.001 0" environment="
-                preset: tron; 
-                fog: 0.4; 
-                ground: flat;
-                groundColor: #801282; 
-                groundColor2: #008eb7; 
-                groundTexture: walkernoise;
-                active: true;
-                skyType: gradient; 
-                skyColor: #801282; 
-                horizonColor: #1f1f1f;
-                flatShading: true; 
-                dressing: apparatus;
-                dressingColor: #3cf7ed; 
-                dressingScale: 0.2; 
-                dressingAmount: 200;
-                dressingOnPlayArea: 1; 
-                gridColor: #FFFF00">
-            </a-entity> -->
-            <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
-
+           
             <!-- Start dot -->
             <a-sphere class="orb clickable" event-listener id="dot" color="#8aecff" position="0 5 -6" radius="3" scale="1 1 .1" >
             </a-sphere>
@@ -142,9 +128,12 @@
             </a-entity>
 
             <!-- 3D Models -->
-            <a-entity id="forrest" gltf-model=#forrest shadow="cast: true"></a-entity>
-            <!-- <lp-plane id="sky" roughness="1" segments-height="90" segments-width="90" color="#000" rotation="-90 0 0" position="0 -3 0" width="100" height="100" max-amplitude="1 1 3" scale visible material low-poly-plane></lp-plane> -->
-            <a-entity id="ground" gltf-model=#ground shadow="cast: true"></a-entity>
+            <!-- <a-entity id="forrest" gltf-model=#forrest shadow="cast: true"></a-entity> -->
+            <a-obj-model src="#forrest-obj" mtl="#forrest-mtl"></a-obj-model>
+            <a-obj-model src="#forrest-ground-obj" mtl="#forrest-ground-mtl"></a-obj-model>
+
+            <!-- <a-entity id="ground" gltf-model=#ground shadow="cast: true"></a-entity> -->
+            <a-obj-model src="#loading-ground-obj" mtl="#loading-ground-mtl"></a-obj-model>
     
             <!-- Track -->
             <a-curve id="track1">
