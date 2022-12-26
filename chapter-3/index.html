@@ -20,10 +20,10 @@
     <a-scene cursor="rayOrigin: mouse" light="defaultLightsEnabled: false" fog="type: exponential; density: 0.05; color: #a58fc7;">
         <a-assets>
             <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
-            <a-asset-item id="forrest" src="forrest.gltf"></a-asset-item>
-            <a-asset-item id="ground" src="panic-ground.gltf"></a-asset-item>
-            <a-asset-item id="loading-ground" src="loading-ground.gltf"></a-asset-item>
-            <audio id="Ch3-audio" src="../../media/Ch1-audio.mp3" preload="auto"></audio>
+            <a-asset-item response-type="arraybuffer" id="forrest" src="gltf/forrest.gltf"></a-asset-item>
+            <a-asset-item response-type="arraybuffer" id="ground" src="gltf/panic-ground.gltf"></a-asset-item>
+            <a-asset-item response-type="arraybuffer" id="loading-ground" src="gltf/loading-ground.gltf"></a-asset-item>
+            <audio id="Ch3-audio" src="../media/Ch1-audio.mp3" preload="auto"></audio>
         </a-assets>
 
         <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity>
@@ -142,9 +142,9 @@
             </a-entity>
 
             <!-- 3D Models -->
-            <a-entity id="forrest" gltf-model=#forrest shadow="cast: true" scale=".8 .8 .8"></a-entity>
+            <a-entity id="forrest" gltf-model=#forrest shadow="cast: true"></a-entity>
             <!-- <lp-plane id="sky" roughness="1" segments-height="90" segments-width="90" color="#000" rotation="-90 0 0" position="0 -3 0" width="100" height="100" max-amplitude="1 1 3" scale visible material low-poly-plane></lp-plane> -->
-            <a-entity id="ground" gltf-model=#ground shadow="cast: true" scale=".8 .8 .8"></a-entity>
+            <a-entity id="ground" gltf-model=#ground shadow="cast: true"></a-entity>
     
             <!-- Track -->
             <a-curve id="track1">
