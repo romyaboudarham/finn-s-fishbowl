@@ -1,14 +1,16 @@
 let dot = document.getElementById('dot');
 let countdown = document.getElementById('countdown');
-let cameraRig = document.getElementById('camera-rig');
+let rig = document.getElementById('rig');
 let camera = document.getElementById('camera');
+let cursor = document.getElementById('cursor');
 
 AFRAME.registerComponent("event-listener", {
     init: function() {
         this.el.addEventListener("click", function(e) {
-            countdown.dispatchEvent(new CustomEvent('countdown-begin'))
-            countdown.setAttribute('visible', 'true');
-            disableDot();
+          cursor.setAttribute('visible', 'false');
+          countdown.dispatchEvent(new CustomEvent('countdown-begin'))
+          countdown.setAttribute('visible', 'true');
+          disableDot();
         });
     }
   });
@@ -45,29 +47,27 @@ AFRAME.registerComponent('restart-chapter', {
 });
 
 function restart() {
-  document.getElementById('scene1').setAttribute('visible', 'true');
-  document.getElementById('scene2').setAttribute('visible', 'false');
+  document.getElementById('countdown').setAttribute('text-geometry', 'value', '3');
   countdown.setAttribute('visible', 'false');
+  cursor.setAttribute('visible', 'true');
   resetCamera();
   enableDot();
 }
 
 function startScene2() {
   setScene2Camera();
-  document.getElementById('scene1').setAttribute('visible', 'false');
-  document.getElementById('scene2').setAttribute('visible', 'true');
   var entity = document.querySelector('[sound]');
   entity.components.sound.playSound();
 }
 
 function disableDot() {
   dot.setAttribute('visible', 'false');
-  dot.setAttribute('position', '0 100 10');
+  dot.setAttribute('position', '0 100 19');
 }
 
 function enableDot() {
   dot.setAttribute('visible', 'true');
-  dot.setAttribute('position', '0 5 -10');
+  dot.setAttribute('position', '0 6.1 19');
 }
 
 function resetCamera() {
@@ -75,14 +75,12 @@ function resetCamera() {
   controls.pitchObject.rotation.x = 0;
   controls.yawObject.rotation.y = 0;
 
-  cameraRig.setAttribute('position', '0 1.6 0');
-  camera.setAttribute('position', '0 0 0');
-  camera.removeAttribute("alongpath");
+  rig.setAttribute('position', '0 1.6 26');
+  rig.removeAttribute("alongpath");
 }
 
 function setScene2Camera() {
-  resetCamera();
-  cameraRig.setAttribute('position', '0 1.6 20');
-  camera.setAttribute("alongpath", "curve", "#track1");
+  rig.setAttribute("alongpath", "curve", "#track1");
+  rig.setAttribute("alongpath", "dur", "7000");
 }
 
