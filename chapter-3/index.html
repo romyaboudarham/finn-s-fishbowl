@@ -23,11 +23,11 @@
             <a-asset-item response-type="arraybuffer" id="forest-test" src="forrest-sml.gltf"></a-asset-item> 
             <a-asset-item response-type="arraybuffer" id="ground-test" src="ground.gltf"></a-asset-item> 
             
-            <audio id="Ch3-audio" src="media/Ch3-audio.mp3" preload="auto"></audio>
+            <audio id="Ch3-audio" src="media/bubbles.wav" preload="auto"></audio>
         </a-assets>
 
         <!-- Load Sound -->
-        <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity>
+        <!-- <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity> -->
 
         <!-- <a-simple-sun-sky light-color="#87cefa" dark-color="#00bfff" fog-color="#74d2fa"></a-simple-sun-sky> -->
 
@@ -38,7 +38,7 @@
                 <a-entity cursor="fuse: true; fuseTimeout: 1000"
                         id="cursor"
                         position="0 0 -3"
-                        geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05;"
+                        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                         material="color: cyan; shader: flat"
                         raycaster="objects: .clickable"
                         animation__fusing="startEvents: fusing;
@@ -149,8 +149,15 @@
             <a-curve-point position="0 1.8 1"></a-curve-point>
         </a-curve>
 
+        <a-curve id="track2">
+            <a-curve-point position="0 1.6 26"></a-curve-point>
+            <a-curve-point position="0 1.6 26"></a-curve-point>
+        </a-curve>
+        
         <!-- TESTING CURVE -->
         <a-draw-curve curveref="#track1" material="shader: line; color: red;"></a-draw-curve>
+        <a-draw-curve curveref="#track2" material="shader: line; color: blue;"></a-draw-curve>
+
     </a-scene>
 </body>
 </html>

@@ -29,7 +29,7 @@ AFRAME.registerComponent("countdown-animation-manager", {
         this.el.emit("third")
       })
       this.el.addEventListener("animationcomplete__third", e => {
-        startScene2();
+        startScene();
       })
     }
   });
@@ -54,8 +54,9 @@ function restart() {
   enableDot();
 }
 
-function startScene2() {
-  setScene2Camera();
+function startScene() {
+  rig.setAttribute("alongpath", "curve", "#track1");
+  rig.setAttribute("alongpath", "dur", "500");
   var entity = document.querySelector('[sound]');
   entity.components.sound.playSound();
 }
@@ -74,13 +75,5 @@ function resetCamera() {
   let controls = camera.components['look-controls'];
   controls.pitchObject.rotation.x = 0;
   controls.yawObject.rotation.y = 0;
-
-  rig.setAttribute('position', '0 1.6 26');
-  rig.removeAttribute("alongpath");
+  rig.setAttribute("alongpath", "curve", "#track2");
 }
-
-function setScene2Camera() {
-  rig.setAttribute("alongpath", "curve", "#track1");
-  rig.setAttribute("alongpath", "dur", "7000");
-}
-
