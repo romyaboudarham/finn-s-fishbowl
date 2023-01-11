@@ -81,11 +81,11 @@ var curvepoints = document.querySelectorAll("#fall > a-curve-point");
       curvepoints[i].addEventListener("alongpath-trigger-activated", function(e){
         if (e.target != null) {
           switch(e.target.id) {
-              case "last":
-                break;
+              // case "last":
+              //   break;
               case "switch-light":
                 ground.setAttribute('visible', 'false');
-                underwater.setAttribute('visible', 'true');
+                // underwater.setAttribute('visible', 'true');
                 // stars.setAttribute('visible', 'true');
                 fishbowl.setAttribute('visible', 'false');
                 break;
@@ -102,7 +102,7 @@ function restart() {
   arrow.setAttribute('visible', 'true');
   pathLight.setAttribute('visible', 'true');
   ground.setAttribute('visible', 'true');
-  underwater.setAttribute('visible', 'false');
+  // underwater.setAttribute('visible', 'false');
   // stars.setAttribute('visible', 'false');
   resetCamera();
   enableDot();
@@ -111,7 +111,7 @@ function restart() {
 function startScene() {
   restartChapter = false;
   rig.setAttribute("alongpath", "curve", "#run");
-  rig.setAttribute("alongpath", "dur", "11000");
+  rig.setAttribute("alongpath", "dur", "12250"); // 11000
   var entity = document.querySelector('[sound]');
   entity.components.sound.playSound();
 }

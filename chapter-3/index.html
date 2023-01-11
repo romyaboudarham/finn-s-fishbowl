@@ -78,7 +78,7 @@
                                     from: 0 0 0;
                                     to: 1 1 1;
                                     dur: 500">
-                    <a-entity sound="src: #Ch3-audio" restart-chapter></a-entity>
+                    <a-entity sound="src: #Ch3-audio; volume: 3" restart-chapter></a-entity>
                 </a-entity>
             </a-entity>
             <!-- FISHBOWL -->
@@ -96,7 +96,7 @@
         <!-- Ground -->
         <a-entity id="groundID" gltf-model="#ground"></a-entity>
         <!-- Underwater -->
-        <a-gltf-model id="underwaterID" visible="false" gltf-model="#underwater"></a-gltf-model>
+        <a-gltf-model id="underwaterID" gltf-model="#underwater"></a-gltf-model>
 
         <!-- Light -->
         <a-entity id="pathLight" light="type: directional; 
@@ -237,17 +237,17 @@
         </a-curve>
 
         <!-- STEP COUNT FOOTPRINT -->
-        <a-gltf-model src="#footprint-1" position=".7 3 -10"></a-gltf-model>
-        <a-gltf-model src="#footprint-2" position="-.7 3 -12"></a-gltf-model>
-        <a-gltf-model src="#footprint-3" position=".7 3 -14"></a-gltf-model>
-        <a-gltf-model src="#footprint-4" position="-.7 3 -16"></a-gltf-model>
-        <a-gltf-model src="#footprint-5" position=".7 3 -18"></a-gltf-model>
-        <a-gltf-model src="#footprint-6" position="-.7 3 -20"></a-gltf-model>
-        <a-gltf-model src="#footprint-7" position=".7 3 -22"></a-gltf-model>
-        <a-gltf-model src="#footprint-8" position="-.7 3 -24"></a-gltf-model>
-        <a-gltf-model src="#footprint-9" position=".7 3 -26"></a-gltf-model>
-        <a-gltf-model src="#footprint-10" position="-.7 3 -28"></a-gltf-model>
-        <a-gltf-model src="#footprint-11" position=".7 3 -30"></a-gltf-model>
+        <a-gltf-model src="#footprint-1" position=".6 3 -10"></a-gltf-model>
+        <a-gltf-model src="#footprint-2" position="-.6 3 -12"></a-gltf-model>
+        <a-gltf-model src="#footprint-3" position=".6 3 -14"></a-gltf-model>
+        <a-gltf-model src="#footprint-4" position="-.6 3 -16"></a-gltf-model>
+        <a-gltf-model src="#footprint-5" position=".6 3 -18"></a-gltf-model>
+        <a-gltf-model src="#footprint-6" position="-.6 3 -20"></a-gltf-model>
+        <a-gltf-model src="#footprint-7" position=".6 3 -22"></a-gltf-model>
+        <a-gltf-model src="#footprint-8" position="-.6 3 -24"></a-gltf-model>
+        <a-gltf-model src="#footprint-9" position=".6 3 -26"></a-gltf-model>
+        <a-gltf-model src="#footprint-10" position="-.6 3 -28"></a-gltf-model>
+        <a-gltf-model src="#footprint-11" position=".6 3 -31"></a-gltf-model>
 
         <!-- TESTING CURVE -->
         <!-- <a-draw-curve curveref="#run" material="shader: line; color: red;"></a-draw-curve>
