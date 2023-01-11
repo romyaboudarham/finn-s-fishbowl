@@ -47,9 +47,13 @@ function setup() {
     pMapper = createProjectionMapper(this);
 
     // create mapping surfaces
-    quadMap = pMapper.createQuadMap(pondImg.width, pondImg.height);
+    quadMap = pMapper.createQuadMap(pondImg.width+50, pondImg.height+50);
     quadMap.x -= quadMap.width / 2;
     quadMap.y -= quadMap.height / 2;
+
+    // TEST
+    // quadMap.imageMode(CENTER);
+    // quadMap.image(pondImg, 0, 0);
 
 }
 

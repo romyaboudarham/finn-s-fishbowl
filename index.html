@@ -6,18 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Finn's Fishbowl</title>
+    <title>Finn's Fish Bowl</title>
 </head>
 <body>
-    <div id="container">
+      <div id="container">
         <div class="main-col">
-          <h1>Finn's Fishbowl</h1>
-          <p>Follow the <b>red arrow</b> pointing <b>left.</b> <br> Press play to begin
-          </p>
-          <!-- Audio -->
+          <h1>Finn's Fish Bowl</h1>
+            <p>
+              Follow the <b>red arrow</b> pointing <b>left.</b>
+            </p>
           <div class="audio-div">
-            <audio id="intro_audio" controls src="media/intro_audio.mp4"></audio>
-              <a id="transcribe-btn" href="">Display audio transcription</a>
+            <p>
+              Press play to begin
+            </p>
+            <audio id="intro_audio" controls src="media/intro_audio.mp3" preload="auto"></audio>
+              <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
+              <div id="transcription-box" style="display:none;">
+                Hi.
+                <br>
+                You're about to experience Finn's Fish Bowl, a story in 3 Chapters.
+                <br>
+                In Chapter 1 you will be taking steps on the marked footprints on the ground. Whenever you hear the narrator count a number, take a step on the footprint with the corresponding number.
+                <br>
+                For example, when you hear
+                <br>
+                <i>One</i>
+                <br>
+                Take a step on footprint one. 
+                <br>
+                <i>Two</i>
+                <br>
+                step on footprint two, and so on.
+                <br>
+                If you are unable to take steps, there are additional accessibility instructions on the next page before starting Chapter 1.
+                <br>
+                Thank you and enjoy :)
+              </div>
           </div>
           <div class="nav-btns">
             <a href="guide-ch1.html" id="next-btn" class="rainbow">Ch. 1 &#x2192;</a>

@@ -9,7 +9,7 @@ let ground = document.getElementById('groundID');
 let underwater = document.getElementById('underwaterID');
 let fishbowl = document.getElementById('fishbowlID');
 let sky = document.getElementById('skyID');
-let stars = document.getElementById('stars');
+// let stars = document.getElementById('stars');
 let restartChapter = false;
 
 // footprints
@@ -86,7 +86,7 @@ var curvepoints = document.querySelectorAll("#fall > a-curve-point");
               case "switch-light":
                 ground.setAttribute('visible', 'false');
                 underwater.setAttribute('visible', 'true');
-                stars.setAttribute('visible', 'true');
+                // stars.setAttribute('visible', 'true');
                 fishbowl.setAttribute('visible', 'false');
                 break;
           }
@@ -103,7 +103,7 @@ function restart() {
   pathLight.setAttribute('visible', 'true');
   ground.setAttribute('visible', 'true');
   underwater.setAttribute('visible', 'false');
-  stars.setAttribute('visible', 'false');
+  // stars.setAttribute('visible', 'false');
   resetCamera();
   enableDot();
 }
