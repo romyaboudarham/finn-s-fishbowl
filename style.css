@@ -55,7 +55,7 @@ p {
     margin: .7rem;
 }
 
-.rainbow, #transcribe-btn {
+.rainbow, #transcribe-btn, #access-btn {
     border: none;
     text-decoration: none;
     color: #a2eef6;
@@ -75,6 +75,13 @@ p {
     margin: .7rem;
     background: none;
     color: rgb(234, 192, 253);
+}
+
+#access-btn {
+    font-size: 1.4rem;
+    padding: 7px 14px;
+    margin-bottom: .7rem;
+    background: none;
 }
 
 #back-btn {
@@ -122,6 +129,20 @@ p {
 
 #transcription-box {
     height: 200px;
+    width: 400px;
+    overflow: auto;
+    background-color: white;
+    color: black;
+    /* scrollbar-base-color:gold; */
+    font-family:sans-serif;
+    padding:10px;
+    border:2px solid yellowgreen;
+    font-family: 'Annie Use Your Telescope';
+    font-size: 30px;
+}
+
+#accessability-box {
+    height: 100px;
     width: 400px;
     overflow: auto;
     background-color: white;
