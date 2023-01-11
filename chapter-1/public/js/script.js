@@ -25,7 +25,7 @@ let show = false;
 
 //Function to parse incoming data
 function parse(incoming) {
-    if (incoming[0] == '/ground' && incoming[1] > 2000) {
+    if ((incoming[0] == '/foot' && incoming[1] > 2000) || (incoming[0] == '/finger' && incoming[1] > 2000)) {
         // pondSound.play();
         // pondSound.setVolume(.7);
         show = true;
