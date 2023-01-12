@@ -61,8 +61,43 @@
         <!-- Controllers -->
         <a-entity oculus-touch-controls="hand: left" button-start></a-entity>
         <a-entity oculus-touch-controls="hand: right" button-start></a-entity>
+
+        <a-entity id="quiet-text" position="-2.3 -7 -35" scale=".5 .5 .5"
+            text-geometry=
+                "font: #optimerBoldFont;
+                height: 0.1; 
+                bevelEnabled: true; 
+                bevelSize: 0.02;
+                bevelThickness: 0.02; 
+                value: It's quiet down here" 
+            material=
+                "color: white; opacity: 0.0;"
+            updater=""
+            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
+        </a-entity>
+
+        <a-entity id="stay-text" position="-2.3 -8.7 -35" scale=".5 .5 .5"
+            text-geometry=
+                "font: #optimerBoldFont;
+                height: 0.1; 
+                bevelEnabled: true; 
+                bevelSize: 0.02;
+                bevelThickness: 0.02; 
+                value: I think I'll stay a bit"
+            material=
+                "color: white; opacity: 0.0;"
+            updater=""
+            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
+        </a-entity>
+
         <!-- Camera -->
+        <!-- "-2 -7 -31" -->
         <a-entity id="rig" position="0 1.6 24" rotation="0 0 0">
+            <!-- Ending Fade Sphere -->
+            <a-sphere id="end-fader" position="0 2 0" radius="3" 
+                material="shader:flat; color: black; opacity: 0.0; side: back" 
+                animation="property: material.opacity; from: 0.0; to: 1.0 dur: 700; startEvents: animate">
+            </a-sphere>
             <a-entity id="camera" camera look-controls>
                 <!-- Cursor -->
                 <a-entity cursor="fuse: true; fuseTimeout: 1000"
@@ -86,7 +121,7 @@
             </a-entity>
             <!-- FISHBOWL -->
             <!-- "0 -.6 -.3" -->
-            <a-gltf-model id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 1 -.5" scale="1 1 1"></a-gltf-model>    
+            <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 .8 -.5" scale="1 1 1"></a-gltf-model>    
         </a-entity>
 
         <a-sky id="skyID" material="shader: gradientshader;
@@ -116,12 +151,12 @@
         <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
 
         <!-- Countdown -->
-        <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.6 4.5 15" scale="8 8 8"
-            animation__first="property: scale; from: 8 8 8; to: 8.2 8.2 8.2; dur: 1000; 
+        <a-entity countdown-animation-manager visible="false" id="countdown" position="-1.5 4.5 15" scale="7 7 7"
+            animation__first="property: scale; from: 7 7 7; to: 7.2 7.2 7.2; dur: 1000; 
             dir: alternate; easing: linear; startEvents: countdown-begin" 
-            animation__second="property: scale; from: 8 8 8; to: 8.2 8.2 8.2; dur: 1000; 
+            animation__second="property: scale; from: 7 7 7; to: 7.2 7.2 7.2; dur: 1000; 
             dir: alternate; easing: linear; startEvents: second"
-            animation__third="property: scale; from: 8 8 8; to: 8.2 8.2 8.2; dur: 1000; 
+            animation__third="property: scale; from: 7 7 7; to: 7.2 7.2 7.2; dur: 1000; 
             dir: alternate; easing: linear; startEvents: third"
             text-geometry=
                 "font: #optimerBoldFont;
@@ -136,14 +171,14 @@
         </a-entity>
 
         <!-- Start dot -->
-        <a-sphere class="clickable" event-listener id="dot" color="#8aecff" position="0 6.1 15" radius="3" scale=".4 .4 .05" >
+        <a-sphere class="clickable" event-listener id="dot" color="#8aecff" position="0 6.1 14.5" radius="3" scale=".37 .37 .07" >
         </a-sphere>
 
         <!-- Arrow -->
         <a-gltf-model id="arrowID" src="#arrow" position="0 3.8 16" scale="4.2 4.2 4.2"></a-gltf-model>
 
         <!-- Instruction Text -->
-        <a-entity id="instruction" position="-4 2.6 16.5" scale="1.1 1.1 1.1"
+        <a-entity id="instruction" position="-3.6 2.6 16.5" scale="1 1 1"
             text-geometry=
                 "font: #optimerBoldFont;
                 height: 0.1; 
@@ -156,14 +191,14 @@
             updater="">
         </a-entity>
 
-        <a-entity id="instruction2" position="-3.2 1.8 16.5" scale="1.1 1.1 1.1"
+        <a-entity id="instruction2" position="-4.5 1.8 16.5" scale="1 1 1"
             text-geometry=
                 "font: #optimerBoldFont;
                 height: 0.1; 
                 bevelEnabled: true; 
                 bevelSize: 0.02;
                 bevelThickness: 0.02; 
-                value: or press any button" 
+                value: or press either orange button" 
             material=
                 "color: white;"
             updater="">
