@@ -161,7 +161,7 @@ function restart() {
 function startScene() {
   restartChapter = false;
   rig.setAttribute("alongpath", "curve", "#run");
-  rig.setAttribute("alongpath", "dur", "12300");
+  rig.setAttribute("alongpath", "dur", "12400");
   var entity = document.querySelector('[sound]');
   entity.components.sound.playSound();
 }

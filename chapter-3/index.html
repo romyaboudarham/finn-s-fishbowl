@@ -62,7 +62,7 @@
         <a-entity oculus-touch-controls="hand: left" button-start></a-entity>
         <a-entity oculus-touch-controls="hand: right" button-start></a-entity>
 
-        <a-entity id="quiet-text" position="-2.3 -8.5 -36" scale=".5 .5 .5"
+        <a-entity id="quiet-text" position="-2.1 -8.5 -36" scale=".5 .5 .5"
             text-geometry=
                 "font: #optimerBoldFont;
                 height: 0.1; 
@@ -76,7 +76,7 @@
             animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
         </a-entity>
 
-        <a-entity id="stay-text" position="-2.3 -9.2 -36" scale=".5 .5 .5"
+        <a-entity id="stay-text" position="-2.1 -9.2 -36" scale=".5 .5 .5"
             text-geometry=
                 "font: #optimerBoldFont;
                 height: 0.1; 
@@ -110,7 +110,7 @@
                                     property: scale;
                                     from: 1 1 1;
                                     to: 0 0 0;
-                                    dur: 700"
+                                    dur: 1000"
                         animation__reset="startEvents: mouseleave;
                                     property: scale;
                                     from: 0 0 0;
@@ -121,7 +121,7 @@
             </a-entity>
             <!-- FISHBOWL -->
             <!-- "0 -.6 -.3" -->
-            <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 .8 -.5" scale="1 1 1"></a-gltf-model>    
+            <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 0 -.5" scale="1 1 1"></a-gltf-model>    
         </a-entity>
 
         <a-sky id="skyID" material="shader: gradientshader;
