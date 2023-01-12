@@ -117,7 +117,7 @@ AFRAME.registerComponent('restart-chapter', {
 rig.addEventListener("movingended", function(e) {
   if (!restartChapter) {
     AFRAME.utils.entity.setComponentProperty(this, "alongpath.curve", "#fall");
-    AFRAME.utils.entity.setComponentProperty(this, "alongpath.dur", "3000");
+    AFRAME.utils.entity.setComponentProperty(this, "alongpath.dur", "3500");
   }
 });
 
@@ -161,7 +161,7 @@ function restart() {
 function startScene() {
   restartChapter = false;
   rig.setAttribute("alongpath", "curve", "#run");
-  rig.setAttribute("alongpath", "dur", "12250"); // 11000
+  rig.setAttribute("alongpath", "dur", "12300");
   var entity = document.querySelector('[sound]');
   entity.components.sound.playSound();
 }
