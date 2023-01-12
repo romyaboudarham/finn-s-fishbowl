@@ -117,7 +117,7 @@ AFRAME.registerComponent('restart-chapter', {
 rig.addEventListener("movingended", function(e) {
   if (!restartChapter) {
     AFRAME.utils.entity.setComponentProperty(this, "alongpath.curve", "#fall");
-    AFRAME.utils.entity.setComponentProperty(this, "alongpath.dur", "3500");
+    AFRAME.utils.entity.setComponentProperty(this, "alongpath.dur", "4000");
   }
 });
 
