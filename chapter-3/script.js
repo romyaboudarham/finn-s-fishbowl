@@ -25,6 +25,22 @@ let footprint9 = document.getElementById('footprint9');
 let footprint10 = document.getElementById('footprint10');
 let footprint11 = document.getElementById('footprint11');
 
+AFRAME.registerComponent('button-start',{
+  init: function () {
+    this.el.addEventListener('abuttonup', this.start);
+    this.el.addEventListener('bbuttonup', this.start);
+    this.el.addEventListener('xbuttonup', this.start);
+    this.el.addEventListener('ybuttonup', this.start);
+  },
+  start: function (evt) {
+    cursor.setAttribute('visible', 'false');
+    arrow.setAttribute('visible', 'false');
+    countdown.dispatchEvent(new CustomEvent('countdown-begin'))
+    countdown.setAttribute('visible', 'true');
+    disableDot();
+  }
+});
+
 AFRAME.registerComponent("event-listener", {
     init: function() {
         this.el.addEventListener("click", function(e) {
