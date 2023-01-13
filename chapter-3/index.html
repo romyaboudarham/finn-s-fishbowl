@@ -55,7 +55,7 @@
             
             <audio id="Ch3-audio" src="media/Ch3-audio.mp3" preload="auto"></audio>
         </a-assets>
-        <a-entity id="stars" visible="" star-system="count: 2000; radius: 5; depth: 2; starSize: 0.02" position="-0.27051 -9.28408 -36.07356" scale="2 1 2"></a-entity>
+        <a-entity id="stars" visible="" star-system="count: 1000; radius: 5; depth: 2; starSize: 0.02" position="-0.27051 -9 -36.07356" scale="2 1 2"></a-entity>
         <!-- <a-entity id="stars" visible="false" star-system="count: 3000; radius: 5; depth: 5; starSize: 0.02" position="-0.27051 1.91006 -36.07356" scale="2 0.3 2"></a-entity> -->
     
         <!-- Controllers -->
@@ -130,7 +130,7 @@
                 </a-entity>
             </a-entity>
             <!-- Ending Fade Sphere -->
-            <a-sphere id="end-fader" position="0 2 0" radius="3" 
+            <a-sphere id="end-fader" position="0 2 0" radius="4" 
                 material="shader:flat; color: black; opacity: 0.0; side: back" 
                 animation="property: material.opacity; from: 0.0; to: 1.0 dur: 1400; startEvents: animate">
             </a-sphere>
