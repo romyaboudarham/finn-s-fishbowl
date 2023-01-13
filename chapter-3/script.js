@@ -62,6 +62,17 @@ AFRAME.registerComponent("event-listener", {
     }
   });
 
+document.addEventListener('keydown', function(e) {
+    fishbowlOutCountdown();
+    subtitlesCountdown();
+    endFadeOutCountdown();
+    cursor.setAttribute('visible', 'false');
+    arrow.setAttribute('visible', 'false');
+    countdown.dispatchEvent(new CustomEvent('countdown-begin'))
+    countdown.setAttribute('visible', 'true');
+    disableDot();
+});
+
 function fishbowlOutCountdown() {
   setTimeout(() => {
     fishbowl.setAttribute('visible', 'false');
