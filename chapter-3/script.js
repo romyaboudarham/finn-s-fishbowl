@@ -11,6 +11,7 @@ let fishbowl = document.getElementById('fishbowlID');
 let sky = document.getElementById('skyID');
 let quietText = document.getElementById('quiet-text');
 let stayText = document.getElementById('stay-text');
+let endText = document.getElementById('end-text');
 let endFader = document.getElementById('end-fader');
 // let stars = document.getElementById('stars');
 let restartChapter = false;
@@ -62,36 +63,35 @@ AFRAME.registerComponent("event-listener", {
     }
   });
 
-document.addEventListener('click', function(e) {
-    fishbowlOutCountdown();
-    subtitlesCountdown();
-    endFadeOutCountdown();
-    cursor.setAttribute('visible', 'false');
-    arrow.setAttribute('visible', 'false');
-    countdown.dispatchEvent(new CustomEvent('countdown-begin'))
-    countdown.setAttribute('visible', 'true');
-    disableDot();
-});
-
 function fishbowlOutCountdown() {
   setTimeout(() => {
     fishbowl.setAttribute('visible', 'false');
+    stars.setAttribute('visible', 'true');
   }, 20000);
 }
 
 function endFadeOutCountdown() {
   setTimeout(() => {
+    endText.emit("animate");
+  }, 48000); 
+  setTimeout(() => {
     endFader.emit("animate");
-  }, 48000);
+  }, 51000);
 }
 
 function subtitlesCountdown() {
+    // fade in
     setTimeout(() => {
       quietText.emit("animate");
     }, 23500);
     setTimeout(() => {
       stayText.emit("animate");
-    }, 26100);
+    }, 26000);
+    // fade out
+    setTimeout(() => {
+      quietText.emit("animate_fadeOut");
+      stayText.emit("animate_fadeOut");
+    }, 30000);
 }
 
 AFRAME.registerComponent("countdown-animation-manager", {
@@ -143,7 +143,6 @@ var curvepoints = document.querySelectorAll("#fall > a-curve-point");
               case "switch-light":
                 ground.setAttribute('visible', 'false');
                 // underwater.setAttribute('visible', 'true');
-                // stars.setAttribute('visible', 'true');
                 fishbowl.setAttribute('visible', 'false');
                 break;
           }
@@ -159,9 +158,8 @@ function restart() {
   arrow.setAttribute('visible', 'true');
   pathLight.setAttribute('visible', 'true');
   ground.setAttribute('visible', 'true');
-  quietText.setAttribute('material', 'opacity', '0.0');
-  stayText.setAttribute('material', 'opacity', '0.0');
   endFader.setAttribute('material', 'opacity', '0.0');
+  endText.setAttribute('material', 'opacity', '0.0');
   fishbowl.setAttribute('visible', 'true');
   // underwater.setAttribute('visible', 'false');
   // stars.setAttribute('visible', 'false');

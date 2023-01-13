@@ -9,7 +9,7 @@
     <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
     <!-- <script src="https://rawgit.com/takahirox/aframe-rain/master/build/aframe-rain.min.js"></script> -->
-    <!-- <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script> -->
+    <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
     <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
     <script src="script.js" defer></script>
 </head>
@@ -55,7 +55,7 @@
             
             <audio id="Ch3-audio" src="media/Ch3-audio.mp3" preload="auto"></audio>
         </a-assets>
-
+        <a-entity id="stars" visible="" star-system="count: 2000; radius: 5; depth: 2; starSize: 0.02" position="-0.27051 -9.28408 -36.07356" scale="2 1 2"></a-entity>
         <!-- <a-entity id="stars" visible="false" star-system="count: 3000; radius: 5; depth: 5; starSize: 0.02" position="-0.27051 1.91006 -36.07356" scale="2 0.3 2"></a-entity> -->
     
         <!-- Controllers -->
@@ -73,7 +73,8 @@
             material=
                 "color: white; opacity: 0.0;"
             updater=""
-            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
+            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate"
+            animation__fadeOut="property: material.opacity; from: 1.0; to: 0.0 dur: 500; startEvents: animate_fadeOut">
         </a-entity>
 
         <a-entity id="stay-text" position="-2.1 -9.2 -36" scale=".5 .5 .5"
@@ -87,18 +88,27 @@
             material=
                 "color: white; opacity: 0.0;"
             updater=""
-            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
+            animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate"
+            animation__fadeOut="property: material.opacity; from: 1.0; to: 0.0 dur: 500; startEvents: animate_fadeOut">
         </a-entity>
 
         <!-- Camera -->
         <!-- "-2 -7 -31" -->
         <a-entity id="rig" position="0 1.6 24" rotation="0 0 0">
-            <!-- Ending Fade Sphere -->
-            <a-sphere id="end-fader" position="0 2 0" radius="3" 
-                material="shader:flat; color: black; opacity: 0.0; side: back" 
-                animation="property: material.opacity; from: 0.0; to: 1.0 dur: 1400; startEvents: animate">
-            </a-sphere>
             <a-entity id="camera" camera look-controls>
+                <a-entity id="end-text" position="-.6 0 -1.5" scale=".5 .5 .5"
+                text-geometry=
+                    "font: #optimerBoldFont;
+                    height: 0.1; 
+                    bevelEnabled: true; 
+                    bevelSize: 0.02;
+                    bevelThickness: 0.02; 
+                    value: The End"
+                material=
+                    "color: white; opacity: 0.0;"
+                updater=""
+                animation="property: material.opacity; from: 0.0; to: 1.0 dur: 500; startEvents: animate">
+            </a-entity>
                 <!-- Cursor -->
                 <a-entity cursor="fuse: true; fuseTimeout: 1000"
                         id="cursor"
@@ -119,6 +129,11 @@
                     <a-entity sound="src: #Ch3-audio; volume: 3" restart-chapter></a-entity>
                 </a-entity>
             </a-entity>
+            <!-- Ending Fade Sphere -->
+            <a-sphere id="end-fader" position="0 2 0" radius="3" 
+                material="shader:flat; color: black; opacity: 0.0; side: back" 
+                animation="property: material.opacity; from: 0.0; to: 1.0 dur: 1400; startEvents: animate">
+            </a-sphere>
             <!-- FISHBOWL -->
             <!-- "0 -.6 -.3" -->
             <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 .8 -.5" scale="1 1 1"></a-gltf-model>    
