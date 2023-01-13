@@ -62,7 +62,7 @@ AFRAME.registerComponent("event-listener", {
     }
   });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('click', function(e) {
     fishbowlOutCountdown();
     subtitlesCountdown();
     endFadeOutCountdown();
