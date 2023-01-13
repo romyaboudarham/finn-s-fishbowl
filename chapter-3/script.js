@@ -82,7 +82,7 @@ function fishbowlOutCountdown() {
 function endFadeOutCountdown() {
   setTimeout(() => {
     endFader.emit("animate");
-  }, 33000);
+  }, 48000);
 }
 
 function subtitlesCountdown() {
