@@ -66,7 +66,7 @@ AFRAME.registerComponent("event-listener", {
 function fishbowlOutCountdown() {
   setTimeout(() => {
     fishbowl.setAttribute('visible', 'false');
-    stars.setAttribute('visible', 'true');
+    // stars.setAttribute('visible', 'true');
   }, 20000);
 }
 
