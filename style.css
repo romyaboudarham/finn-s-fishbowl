@@ -176,7 +176,7 @@ p {
     }
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 370px) {
     #next-btn, #back-btn {
         padding: 7px 17px;
         font-size: 1.5rem;
@@ -186,3 +186,4 @@ p {
         width: 300px;
     }
 }
+
