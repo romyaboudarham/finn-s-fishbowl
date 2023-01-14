@@ -22,6 +22,7 @@
             <a-asset-item response-type="arraybuffer" id="ground" src="https://ucarecdn.com/97cfb37f-18f2-44ba-bafc-7440775cfa0f/ground.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="underwater" src="https://ucarecdn.com/3807b2ff-0e0a-4548-a383-12a53a2446ff/underwater.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="fishbowl" src="https://ucarecdn.com/f43c0afd-2dd2-4489-bce6-4036debfb567/fishbowl.gltf"></a-asset-item>
+            <a-asset-item response-type="arraybuffer" id="bowl" src="https://ucarecdn.com/eb5d89b4-1d12-424f-9813-6ad4c8b0e4d9/bowl.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="arrow" src="https://ucarecdn.com/6ebf1cee-21b5-4724-986c-d6c6d94689f5/arrow.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="footprint-1" src="https://ucarecdn.com/ae3609eb-2171-4776-a74d-841a170d4b08/footprint1.gltf"></a-asset-item>
             <a-asset-item response-type="arraybuffer" id="footprint-2" src="https://ucarecdn.com/2968288c-7383-4e22-9eeb-ec7be012fe1b/footprint2.gltf"></a-asset-item>
@@ -138,6 +139,9 @@
             <!-- "0 -.6 -.3" -->
             <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 .8 -.5" scale="1 1 1"></a-gltf-model>    
         </a-entity>
+
+        <!-- EMPTY BOWL -->
+        <a-gltf-model id="bowlID" src="#bowl" rotation="0 2.541067821405201 0" position="-4.62182 -16.35052 -36.71127" scale="" gltf-model="https://ucarecdn.com/eb5d89b4-1d12-424f-9813-6ad4c8b0e4d9/bowl.gltf"></a-gltf-model>  
 
         <a-sky id="skyID" material="shader: gradientshader;
             topColor:  #000;
