@@ -142,6 +142,23 @@ p {
     font-size: 30px;
 }
 
+#arrow-img {
+    width: 300px;
+    height: auto;
+}
+
+#follow-arrow {
+    text-align: center;
+    width: 400px;
+    margin-bottom: 2rem;
+}
+
+#follow-arrow img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
 /* Scrollbar styles */
 ::-webkit-scrollbar {
     width: 12px;

@@ -5,40 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Finn's Fishbowl</title>
 </head>
 <body>
   <div id="container">
     <div class="main-col">
       <h1>Chapter 2</h1>
-      <div class="audio-div">
-        <p>
-          Explore Finn's Fishbowl :)
-          <br>
-          Press play to begin.
-        </p>
-        <audio id="intro_audio" controls src="media/Ch2-audio.mp3"></audio>
-          <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
-          <div id="transcription-box" style="display:none;">
-            I try to be as silent as possible tip-toeing past both my parents' rooms so I don't wake them. My dad shouts. Over the stupidest things.
+      <div id="chapter-div">
+        <div class="audio-div">
+          <p>
+            Explore Finn's Fishbowl :)
             <br>
-            *Door shuts*
-            <br>
-            *Takes a deep breathe* I don't like being home. But when I am, my favorite thing to do is hang out with Finn. My fish! Here come see the amazing home I made for him in his fish bowl.
-            <br>
-            Look at the rainbow rocks and plants. Egg yolk treasure and googly eyes. Everything you could ever need is right here. I wish I was in there with you buddy.
-            <br>
-            *Hears shouts*
-            <br>
-            Oh no. I must have woken up my parents. They don't sound happy. No Finn don't be scared. I'm right here. Look I made you another awesome thing for your home. It's a picture of us. In our favorite field surrounded by flowers.
-            <br>
-            I like to fill Finn's Fish bowl with toys and beauty to protect him from the loud sounds at home. But tonight, it's extra loud.
-            <br>
-            *starts to panic* Here finn how about we pre- pretend we're swimming swimmi- ah it's too loud we have to get out of here. Don't worry Finn I'll protect you.
-            <br>
-            <i>Please follow the red arrow staight ahead and click next for Chapter 3</i>
-          </div>
+            Press play to begin.
+          </p>
+          <audio id="audio" controls src="media/Ch2-audio.mp3"></audio>
+            <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
+            <div id="transcription-box" style="display:none;">
+              I try to be as silent as possible tip-toeing past both my parents' rooms so I don't wake them. My dad shouts. Over the stupidest things.
+              <br>
+              *Door shuts*
+              <br>
+              *Takes a deep breathe* I don't like being home. But when I am, my favorite thing to do is hang out with Finn. My fish! Here come see the amazing home I made for him in his fish bowl.
+              <br>
+              Look at the rainbow rocks and plants. Egg yolk treasure and googly eyes. Everything you could ever need is right here. I wish I was in there with you buddy.
+              <br>
+              *Hears shouts*
+              <br>
+              Oh no. I must have woken up my parents. They don't sound happy. No Finn don't be scared. I'm right here. Look I made you another awesome thing for your home. It's a picture of us. In our favorite field surrounded by flowers.
+              <br>
+              I like to fill Finn's Fish bowl with toys and beauty to protect him from the loud sounds at home. But tonight, it's extra loud.
+              <br>
+              *starts to panic* Here finn how about we pre- pretend we're swimming swimmi- ah it's too loud we have to get out of here. Don't worry Finn I'll protect you.
+              <br>
+              <i>Please follow the red arrow staight ahead and click next for Chapter 3</i>
+            </div>
+        </div>
+      </div>
+      <div id="follow-arrow" style="display:none;">
+        <img id="arrow-img" src="media/arrow.png" alt="">
+        <p><b>Follow the arrow on the ground <br> and click next for Chapter 3</b></p>
       </div>
       <div class="nav-btns">
         <a href="guide-ch1.html" id="back-btn" class="rainbow">&#x2190; Ch. 1</a>

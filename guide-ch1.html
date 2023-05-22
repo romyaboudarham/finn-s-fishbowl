@@ -5,31 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Finn's Fishbowl</title>
 </head>
 <body>
     <div id="container">
         <div class="main-col">
           <h1>Chapter 1</h1>
-          <p>
-            When the person in front of you
-            <br>
-            reaches the <b>last footstep</b>,
-            <br>
-            place <b>both feet</b> on <b>green footprints</b>
-          </p>
-          <input type="button" id="access-btn" href="" value="Show &#x267F; Instructions" onclick="toggle_visibility('access-btn', 'accessability-box')"/>
-          <div id="accessability-box" style="display:none;">
-            1. Move along with audio OR go straight to 11th footstep.
-            <br>
-            2. When you hear <i>"eleven"</i>, press the button on the wall to your right.
-          </div>
-          <div class="audio-div">
+          <div id="chapter-div">
             <p>
-              Press play to begin
+              When the person in front of you
+              <br>
+              reaches the <b>last footstep</b>,
+              <br>
+              place <b>both feet</b> on <b>green footprints</b>
             </p>
-            <audio id="intro_audio" controls src="media/Ch1-audio.mp3"></audio>
+            <input type="button" id="access-btn" href="" value="Show &#x267F; Instructions" onclick="toggle_visibility('access-btn', 'accessability-box')"/>
+            <div id="accessability-box" style="display:none;">
+              1. Move along with audio OR go straight to 11th footstep.
+              <br>
+              2. When you hear <i>"eleven"</i>, press the button on the wall to your right.
+            </div>
+            <div class="audio-div">
+              <p>
+                Press play to begin
+              </p>
+              <audio id="audio" controls src="media/Ch1-audio.mp3" preload="auto"></audio>
               <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
               <div id="transcription-box" style="display:none;">
                 <i>One</i> (take a step)
@@ -58,8 +59,12 @@
                 Must tread around the pond lightly now. My house is just up ahead after this last stretch of field. Ten more steps. Same as how I entered.
                 The lights are off. Phew. That means it's quiet.
                 <br>
-                <i>Please follow the red arrow to the right and click next for Chapter 2</i>
               </div>
+            </div>
+          </div>
+          <div id="follow-arrow" style="display:none;">
+              <img id="arrow-img" src="media/arrow.png" alt="">
+              <p><b>Follow the arrow on the ground <br> and click next for Chapter 2</b></p>
           </div>
           <div class="nav-btns">
             <a href="index.html" id="back-btn" class="rainbow">&#x2190; Home</a>
