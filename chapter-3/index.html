@@ -3,8 +3,8 @@
 <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
-    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-curve-component/dist/aframe-curve-component.min.js"></script>
+    <script src="alongpath.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
     <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
@@ -54,7 +54,7 @@
             <a-asset-item response-type="arraybuffer" id="footprint-10" src="footprint-10.gltf"></a-asset-item> 
             <a-asset-item response-type="arraybuffer" id="footprint-11" src="footprint-11.gltf"></a-asset-item>  -->
             
-            <audio id="Ch3-audio" src="media/Ch3-audio.mp3" preload="auto"></audio>
+            <audio id="Ch3-audio" src="./media/Ch3-audio.mp3" preload="auto"></audio>
         </a-assets>
         <!-- <a-entity id="stars" visible="false" star-system="count: 1000; radius: 5; depth: 2; starSize: 0.02" position="-0.27051 -9 -36.07356" scale="2 1 2"></a-entity> -->
         <!-- <a-entity id="stars" visible="false" star-system="count: 3000; radius: 5; depth: 5; starSize: 0.02" position="-0.27051 1.91006 -36.07356" scale="2 0.3 2"></a-entity> -->
@@ -136,8 +136,9 @@
                 animation="property: material.opacity; from: 0.0; to: 1.0 dur: 1400; startEvents: animate">
             </a-sphere>
             <!-- FISHBOWL -->
-            <!-- "0 -.6 -.3" -->
-            <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 .8 -.5" scale="1 1 1"></a-gltf-model>    
+            <!-- PROD: "0 .8 -.5" -->
+            <!-- TEST: "0 -.6 -.3" -->
+            <a-gltf-model visible="true" id="fishbowlID" src="#fishbowl" rotation="0 180 0" position="0 -.6 -.3" scale="1 1 1"></a-gltf-model>    
         </a-entity>
 
         <!-- EMPTY BOWL -->
@@ -295,17 +296,19 @@
         </a-curve>
 
         <!-- STEP COUNT FOOTPRINT -->
-        <a-gltf-model src="#footprint-1" position=".6 3 -10"></a-gltf-model>
-        <a-gltf-model src="#footprint-2" position="-.6 3 -12"></a-gltf-model>
-        <a-gltf-model src="#footprint-3" position=".6 3 -14"></a-gltf-model>
-        <a-gltf-model src="#footprint-4" position="-.6 3 -16"></a-gltf-model>
-        <a-gltf-model src="#footprint-5" position=".6 3 -18"></a-gltf-model>
-        <a-gltf-model src="#footprint-6" position="-.6 3 -20"></a-gltf-model>
-        <a-gltf-model src="#footprint-7" position=".6 3 -22"></a-gltf-model>
-        <a-gltf-model src="#footprint-8" position="-.6 3 -24"></a-gltf-model>
-        <a-gltf-model src="#footprint-9" position=".6 3 -26"></a-gltf-model>
-        <a-gltf-model src="#footprint-10" position="-.6 3 -28"></a-gltf-model>
-        <a-gltf-model src="#footprint-11" position=".6 3 -31"></a-gltf-model>
+         <!-- PROD: y=3 -->
+         <!-- TEST: y=1.6-->
+        <a-gltf-model src="#footprint-1" position=".6 1.6 -10"></a-gltf-model>
+        <a-gltf-model src="#footprint-2" position="-.6 1.6 -12"></a-gltf-model>
+        <a-gltf-model src="#footprint-3" position=".6 1.6 -14"></a-gltf-model>
+        <a-gltf-model src="#footprint-4" position="-.6 1.6 -16"></a-gltf-model>
+        <a-gltf-model src="#footprint-5" position=".6 1.6 -18"></a-gltf-model>
+        <a-gltf-model src="#footprint-6" position="-.6 1.6 -20"></a-gltf-model>
+        <a-gltf-model src="#footprint-7" position=".6 1.6 -22"></a-gltf-model>
+        <a-gltf-model src="#footprint-8" position="-.6 1.6 -24"></a-gltf-model>
+        <a-gltf-model src="#footprint-9" position=".6 1.6 -26"></a-gltf-model>
+        <a-gltf-model src="#footprint-10" position="-.6 1.6 -28"></a-gltf-model>
+        <a-gltf-model src="#footprint-11" position=".6 1.6 -31"></a-gltf-model>
 
         <!-- TESTING CURVE -->
         <!-- <a-draw-curve curveref="#run" material="shader: line; color: red;"></a-draw-curve>
