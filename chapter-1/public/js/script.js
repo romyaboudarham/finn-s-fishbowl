@@ -3,7 +3,7 @@ let pondSound;
 
 function preload() {
     pondImg = loadImage('public/img/just-pond.png');
-    pondSound = loadSound('public/sounds/pond-dec-3.mp3');
+    //pondSound = loadSound('public/sounds/pond-dec-3.mp3');
 }
 
 //Connect to node server and recieve data via a websocket
@@ -47,33 +47,24 @@ function setup() {
     pMapper = createProjectionMapper(this);
 
     // create mapping surfaces
-    quadMap = pMapper.createQuadMap(pondImg.width+50, pondImg.height+50);
+    quadMap = pMapper.createQuadMap(pondImg.width + 50, pondImg.height + 50);
     quadMap.x -= quadMap.width / 2;
     quadMap.y -= quadMap.height / 2;
-
-    // TEST
-    // quadMap.imageMode(CENTER);
-    // quadMap.image(pondImg, 0, 0);
 
 }
 
 function draw() {
     background(0);
-    quadMap.clear();
-
     if (show) {
         tint(255, fade);
-        quadMap.imageMode(CENTER);
-        quadMap.image(pondImg, 0, 0);
-
-        // if (fade<0) fadeAmount=1; 
-        // if (fade>255) fadeAmount=-10; 
+        showImg();
         if (fade < 255) fade += fadeAmount; 
     } else if (fade > 0) {
         tint(255, fade);
-        quadMap.imageMode(CENTER);
-        quadMap.image(pondImg, 0, 0);
+        showImg();
         fade -= fadeAmount; 
+    } else {
+        quadMap.displayTexture(null);
     }
 }
 
@@ -102,4 +93,18 @@ function keyPressed() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function showImg() {
+    // Compute scaling factors to ensure the image covers the entire quad
+    let scaleX = quadMap.width / pondImg.width;
+    let scaleY = quadMap.height / pondImg.height;
+
+    // Choose the largest scale factor to ensure the image covers the quad without stretching
+    let scale = max(scaleX, scaleY);
+
+    // Centering the image and scaling it to cover the quad
+    let offsetX = (quadMap.width - pondImg.width * scale) / 2;
+    let offsetY = (quadMap.height - pondImg.height * scale) / 2;
+    quadMap.displayTexture(pondImg, offsetX, offsetY, pondImg.width * scaleX, pondImg.height * scaleY);
 }
