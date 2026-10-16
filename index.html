@@ -5,21 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="media/intro_words.js" defer></script>
     <script src="script.js" defer></script>
     <title>Finn's Fish Bowl</title>
 </head>
 <body>
-      <div id="container">
+      <div id="container" class="pre-begin home">
         <div class="main-col">
-          <h1>Finn's Fish Bowl</h1>
-            <p>
-              Follow the <b>red arrow</b> on the ground to the <b>left.</b>
-            </p>
-          <div class="audio-div">
-            <p>
-              Press play to begin
-            </p>
-            <audio id="intro_audio" controls src="media/intro_audio.mp3" preload="auto"></audio>
+          <div id="start-text">
+            <div class="home-title">
+              <h1>Finn's<br>Fish Bowl</h1>
+              <p class="tagline">An interactive, immersive story</p>
+              <!-- <p class="tagline">Themes of family conflict and shouting</p> -->
+            </div>
+            <div class="start-sub" id="headphones-text">
+              <svg class="headphones-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 40V32a20 20 0 0 1 40 0v8"/>
+                <rect x="8" y="36" width="10" height="18" rx="5"/>
+                <rect x="46" y="36" width="10" height="18" rx="5"/>
+              </svg>
+              <p>
+                Grab a pair of headphones
+              </p>
+            </div>
+          </div>
+          <button type="button" id="play-btn" class="rainbow" data-hide="start-text" onclick="start_narration()">Begin<span class="play-icon">&#9654;&#xFE0E;</span></button>
+          <h1 class="after-start">Introduction</h1>
+          <div class="audio-div" id="narration-player" style="display:none;">
+            <div id="subtitle-area">
+              <div id="subtitles" aria-hidden="true"></div>
+            </div>
+            <audio id="intro_audio" controls controlsList="nodownload" src="media/intro_audio.mp3" preload="auto" data-next="guide-ch1.html"></audio>
+              <!--
               <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
               <div id="transcription-box" style="display:none;">
                 Hi.
@@ -38,13 +55,11 @@
                 <br>
                 step on footprint two, and so on.
                 <br>
-                If you are unable to take steps, there are additional accessibility instructions on the next page before starting Chapter 1.
-                <br>
+                [If you are unable to take steps, there are additional accessibility instructions on the next page before starting Chapter 1.
+                <br>]
                 Thank you and enjoy :)
               </div>
-          </div>
-          <div class="nav-btns">
-            <a href="guide-ch1.html" id="next-btn" class="rainbow">Ch. 1 &#x2192;</a>
+              -->
           </div>
         </div>
       </div>
