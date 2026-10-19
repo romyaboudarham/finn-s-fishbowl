@@ -3,11 +3,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 	<title>Osc P5</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
-	<script type="text/javascript" src="/public/libraries/p5.mapper.min.js"></script>
+	<!-- Libraries are local: the laptop has no internet while on the Feather's Wi-Fi -->
+	<script src="public/libraries/p5.min.js"></script>
+	<script src="public/libraries/p5.sound.min.js"></script>
+	<script type="text/javascript" src="public/libraries/p5.mapper.min.js"></script>
 	<script src="public/js/script.js"></script>
 
 	<style>
@@ -26,6 +25,7 @@
 		<h1>Chapter 1 - Pond Projection</h1>
 		<p>'c' toggles calibration</p>
 		<p>'f' toggles fullscreen</p>
+		<p id="status">Sensor: connecting...</p>
 	</header>
 </body>
 
