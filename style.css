@@ -205,7 +205,7 @@ p {
 }
 
 /* Chapter 1 start screen: Play at the bottom, instructions centered between the title and Play,
-   two green footprints under the text */
+   two purple footprints under the text */
 .start-bottom.pre-begin #start-text {
     bottom: calc(clamp(32px, 7vh, 56px) + 76px + 1.5rem);
 }
@@ -235,7 +235,7 @@ p {
     width: 40px;
     height: 66px;
     overflow: visible;
-    fill: yellowgreen;
+    fill: mediumpurple;
     stroke: black;
     stroke-width: 2;
 }
@@ -244,8 +244,8 @@ p {
     transform: scaleX(-1);
 }
 
-.green-footprints {
-    color: yellowgreen;
+.purple-footprints {
+    color: mediumpurple;
     font-weight: bold;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
