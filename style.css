@@ -231,12 +231,17 @@ p {
     margin-top: 24px;
 }
 
-.footprints span {
+.footprints svg {
     width: 40px;
-    height: 40px;
-    border: 2px solid black;
-    border-radius: 50%;
-    background: yellowgreen;
+    height: 66px;
+    overflow: visible;
+    fill: yellowgreen;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.footprints .flipped {
+    transform: scaleX(-1);
 }
 
 .green-footprints {
@@ -352,6 +357,25 @@ p {
     max-width: 560px;
 }
 
+/* Back/forward 10s buttons, sitting just above the player */
+#skip-controls {
+    position: fixed;
+    bottom: calc(2rem + 54px + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 16px;
+}
+
+.skip-btn {
+    font-size: 1.4rem;
+    padding: 6px 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #fff;
+    color: black;
+    cursor: pointer;
+}
+
 #subtitles {
     width: 100%;
     min-height: 36px;
@@ -432,9 +456,34 @@ p {
     margin: 0;
 }
 
-#follow-arrow img {
+#follow-arrow img,
+#follow-arrow .turn-arrow {
     display: block;
     margin: 2rem auto;
+}
+
+/* End-screen directions (Ch. 1 "Take a seat", Ch. 2 "Remove your headphones...") are larger,
+   bold parts included, in the paragraph font */
+.end-directions,
+.end-directions b,
+.remove-headphones {
+    font-family: inherit;
+}
+
+.end-directions,
+.remove-headphones {
+    font-size: 1.25em;
+}
+
+/* End screen headings ("Follow the arrows on the ground", "Remove your headphones."), a little larger */
+.end-title {
+    font-size: 1.2em;
+}
+
+/* Ch. 1: straight ahead, then a 90-degree turn to the left */
+.turn-arrow {
+    width: 240px;
+    height: 240px;
 }
 
 /* The button on the arrow screen is as big as the Play/Begin buttons */

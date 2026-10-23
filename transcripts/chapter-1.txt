@@ -1,18 +1,27 @@
-Chapter 1 - transcript of media/Ch1-audio.mp3
-Auto-transcribed with Whisper (small model). Not proofread; names and wording may need correcting.
+Chapter 1 - transcript of media/Ch1-audio-new.mp3
+Auto-transcribed with Whisper (medium.en model), wording corrected against the previous transcript.
 
-[00:02.9] 1. I'm 10 years old, which means I'm fully capable of walking home alone for my best
-[00:09.6] friend's house. 2, 3, 4. I must admit, when it's dark out I get a little scared and wish
-[00:18.6] I had someone with me, especially when crossing the field at night. 5, 6, 7. The pond should
-[00:29.8] be close now. It's the only thing between me and my exit. I can't see well when it's
-[00:34.9] dark, so I need to count my steps correctly. 8. To calm myself down, I think about the
-[00:42.4] fishies that rest in the water. The pond seems quiet and peaceful at night, so it must be
-[00:48.3] so cool to sleep in a leaf hammock under the stars. 9, 10. Sometimes, when I'm too deep
-[00:58.4] in my imagination, I lose count. 11, 10 steps. 10 steps. It takes 10 steps to get to the
-[01:08.4] edge of the pond. My house is just up ahead after this last stretch of field. 10 more
-[01:14.2] steps, same as how I entered. The lights are off. Phew, that means it's quiet.
-[01:21.3] Follow the red arrow to the right and click next for chapter 2.
+[00:03.0] One.
+[00:05.2] I'm ten years old, which means I'm fully capable of walking home alone from my best friend's house.
+[00:11.2] Two, three, four.
+[00:14.8] I must admit, when it's dark out I get a little scared and wish I had someone with me, especially when crossing the field at night.
+[00:25.7] Five, six, seven.
+[00:29.4] The pond should be close now.
+[00:31.1] It's the only thing between me and my exit.
+[00:33.6] I can't see well when it's dark, so I need to count my steps correctly.
+[00:38.4] Eight.
+[00:40.3] To calm myself down, I think about the fishies that rest in the water.
+[00:44.7] The pond seems quiet and peaceful at night, so it must be so cool to sleep in a leaf hammock under the stars.
+[00:52.8] Nine, ten.
+[00:56.7] Sometimes, when I'm too deep in my imagination, I lose count.
+[01:01.6] Eleven, ten steps.
+[01:06.0] Ten steps.
+[01:07.0] It takes ten steps to get to the edge of the pond.
+[01:10.1] My house is just up ahead after this last stretch of field.
+[01:13.9] Ten more steps, same as how I entered.
+[01:17.4] The lights are off.
+[01:18.7] Phew, that means it's quiet.
 
 --- full text ---
 
-1. I'm 10 years old, which means I'm fully capable of walking home alone for my best friend's house. 2, 3, 4. I must admit, when it's dark out I get a little scared and wish I had someone with me, especially when crossing the field at night. 5, 6, 7. The pond should be close now. It's the only thing between me and my exit. I can't see well when it's dark, so I need to count my steps correctly. 8. To calm myself down, I think about the fishies that rest in the water. The pond seems quiet and peaceful at night, so it must be so cool to sleep in a leaf hammock under the stars. 9, 10. Sometimes, when I'm too deep in my imagination, I lose count. 11, 10 steps. 10 steps. It takes 10 steps to get to the edge of the pond. My house is just up ahead after this last stretch of field. 10 more steps, same as how I entered. The lights are off. Phew, that means it's quiet. Follow the red arrow to the right and click next for chapter 2.
+One. I'm ten years old, which means I'm fully capable of walking home alone from my best friend's house. Two, three, four. I must admit, when it's dark out I get a little scared and wish I had someone with me, especially when crossing the field at night. Five, six, seven. The pond should be close now. It's the only thing between me and my exit. I can't see well when it's dark, so I need to count my steps correctly. Eight. To calm myself down, I think about the fishies that rest in the water. The pond seems quiet and peaceful at night, so it must be so cool to sleep in a leaf hammock under the stars. Nine, ten. Sometimes, when I'm too deep in my imagination, I lose count. Eleven, ten steps. Ten steps. It takes ten steps to get to the edge of the pond. My house is just up ahead after this last stretch of field. Ten more steps, same as how I entered. The lights are off. Phew, that means it's quiet.

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="media/intro_words.js" defer></script>
+    <script src="media/walkman_words.js" defer></script>
     <script src="script.js" defer></script>
     <title>Finn's Fish Bowl</title>
 </head>
@@ -30,12 +31,16 @@
             </div>
           </div>
           <button type="button" id="play-btn" class="rainbow" data-hide="start-text" onclick="start_narration()">Begin<span class="play-icon">&#9654;&#xFE0E;</span></button>
-          <h1 class="after-start">Introduction</h1>
+          <h1 class="after-start" id="chapter-title">Introduction</h1>
           <div class="audio-div" id="narration-player" style="display:none;">
             <div id="subtitle-area">
               <div id="subtitles" aria-hidden="true"></div>
             </div>
-            <audio id="intro_audio" controls controlsList="nodownload" src="media/intro_audio.mp3" preload="auto" data-next="guide-ch1.html"></audio>
+            <div id="skip-controls" style="display:none;">
+              <button type="button" class="skip-btn" onclick="skip(-10)" aria-label="Back 10 seconds">&#8634; 10s</button>
+              <button type="button" class="skip-btn" onclick="skip(10)" aria-label="Forward 10 seconds">10s &#8635;</button>
+            </div>
+            <audio id="intro_audio" controls controlsList="nodownload" src="media/intro_audio-no-ada.mp3" preload="auto" data-next="guide-ch1.html" data-walkman-src="media/ch1-ch2-walkman.mp3"></audio>
               <!--
               <input type="button" id="transcribe-btn" href="" value="Show Audio Transcription" onclick="toggle_visibility('transcribe-btn', 'transcription-box')"/>
               <div id="transcription-box" style="display:none;">

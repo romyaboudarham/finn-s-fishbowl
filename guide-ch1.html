@@ -23,8 +23,13 @@
                 stand on the <b class="green-footprints">green footprints</b>
               </p>
               <div class="footprints" aria-hidden="true">
-                <span></span>
-                <span></span>
+                <svg viewBox="0 0 40 66" class="flipped">
+                  <g id="foot">
+                    <path d="M19 2C29 2 35 9 35 19C35 28 31 34 30 40C29.5 43 27 44 20 44C13 44 10 43 9.5 40C8.5 33 6 27 6 18C6 8 11 2 19 2Z"/>
+                    <path d="M10 49C10 47.5 11.5 47 20 47C28 47 29.5 47.5 29.5 49L29.5 55C29.5 61 25.5 64 20 64C14 64 10 61 10 55Z"/>
+                  </g>
+                </svg>
+                <svg viewBox="0 0 40 66"><use href="#foot"/></svg>
               </div>
             </div>
           </div>
@@ -33,12 +38,17 @@
             <div id="subtitle-area">
               <div id="subtitles" aria-hidden="true"></div>
             </div>
-            <audio id="audio" controls controlsList="nodownload" src="media/Ch1-audio.mp3" preload="auto"></audio>
+            <audio id="audio" controls controlsList="nodownload" src="media/Ch1-audio-new.mp3" preload="auto"></audio>
           </div>
           <div id="follow-arrow" style="display:none;">
-            <p><b>Follow the arrows on the ground </b></p>
-            <img id="arrow-img" src="media/arrow.png" alt="">
-            <p><b> Take a seat </b></p>
+            <p><b class="end-title">Follow the arrows on the ground </b></p>
+            <svg class="turn-arrow" viewBox="0 0 240 240" aria-hidden="true">
+              <g transform="translate(24 0)" fill="#ED1C24">
+                <path d="M170 240V120A40 40 0 0 0 130 80H90" fill="none" stroke="#ED1C24" stroke-width="36"/>
+                <polygon points="92,22 92,138 4,80"/>
+              </g>
+            </svg>
+            <p><b class="end-directions"> Take a seat </b></p>
             <a href="guide-ch2.html?play" id="next-btn" class="rainbow">Play Ch. 2</a> 
           </div>
           <!-- Transcription box, no longer shown:

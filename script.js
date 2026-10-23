@@ -1,6 +1,22 @@
 // Narrated pages (home, Ch. 1, Ch. 2): Play reveals the player and word-by-word subtitles,
 // and when the audio ends the page shows its #follow-arrow screen, or moves on to data-next.
 const narrationAudio = document.getElementById('intro_audio') || document.getElementById('audio');
+
+// Audio setup: 'phone' plays the intro on the home page and each chapter on its own page;
+// 'walkman' plays one track (intro + Ch. 1 + Ch. 2) on the home page and stays there when it ends.
+// Adding ?audio=phone or ?audio=walkman to the URL overrides it.
+const AUDIO_MODE = new URLSearchParams(window.location.search).get('audio') || 'phone';
+
+let subtitleSentences = narrationAudio ? SUBTITLE_SENTENCES : [];
+let chapters = null;
+if (AUDIO_MODE === 'walkman' && narrationAudio && narrationAudio.dataset.walkmanSrc) {
+    narrationAudio.src = narrationAudio.dataset.walkmanSrc;
+    delete narrationAudio.dataset.next;
+    subtitleSentences = WALKMAN_SENTENCES;
+    chapters = WALKMAN_CHAPTERS;
+    document.getElementById('skip-controls').style.display = 'flex';
+}
+
 if (narrationAudio) {
     narrationAudio.onended = function() {
         const followArrow = document.getElementById('follow-arrow');
@@ -51,7 +67,7 @@ function size_subtitles() {
     const box = document.getElementById('subtitles');
     box.style.minHeight = '0';
     let tallest = 0;
-    SUBTITLE_SENTENCES.forEach(function(sentence) {
+    subtitleSentences.forEach(function(sentence) {
         fill_subtitle(box, sentence);
         tallest = Math.max(tallest, box.getBoundingClientRect().height);
     });
@@ -65,25 +81,38 @@ function render_subtitles() {
     const box = document.getElementById('subtitles');
     const t = narrationAudio.currentTime;
     let index = -1;
-    SUBTITLE_SENTENCES.forEach(function(sentence, i) {
+    subtitleSentences.forEach(function(sentence, i) {
         if (t >= sentence[0].start) index = i;
     });
     if (narrationAudio.ended) index = -1;
     if (index >= 0) {
-        const sentence = SUBTITLE_SENTENCES[index];
+        const sentence = subtitleSentences[index];
         if (t > sentence[sentence.length - 1].end + SUBTITLE_HOLD) index = -1;
+    }
+    if (chapters) {
+        let title = chapters[0].title;
+        chapters.forEach(function(chapter) {
+            if (t >= chapter.start) title = chapter.title;
+        });
+        document.getElementById('chapter-title').textContent = title;
     }
     if (index !== subtitleIndex) {
         subtitleIndex = index;
         box.textContent = '';
-        if (index >= 0) fill_subtitle(box, SUBTITLE_SENTENCES[index]);
+        if (index >= 0) fill_subtitle(box, subtitleSentences[index]);
     }
     if (index >= 0) {
         const spans = box.querySelectorAll('span');
-        SUBTITLE_SENTENCES[index].forEach(function(word, i) {
+        subtitleSentences[index].forEach(function(word, i) {
             spans[i].classList.toggle('shown', t >= word.start);
         });
     }
+}
+
+// Back/forward buttons (walkman mode)
+function skip(seconds) {
+    const end = narrationAudio.duration || narrationAudio.currentTime;
+    narrationAudio.currentTime = Math.min(Math.max(narrationAudio.currentTime + seconds, 0), end);
 }
 
 // The subtitle width depends on the screen, so re-measure when it changes (e.g. turning the phone)
