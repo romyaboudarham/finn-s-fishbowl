@@ -22,4 +22,10 @@ fi
 # Never blank the screen
 sudo raspi-config nonint do_blanking 1
 
+# Never suspend or hibernate the machine
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# Never let the Wi-Fi radio power-save (it can drop the sensor connection)
+sudo nmcli connection modify pond_sensor 802-11-wireless.powersave 2
+
 echo "Done. Reboot to start the pond."

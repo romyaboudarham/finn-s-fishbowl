@@ -10,6 +10,8 @@ trap 'kill $SERVER_PID' EXIT
 # Wait for the server before opening the browser
 until curl -sf http://127.0.0.1:8000/ >/dev/null; do sleep 0.5; done
 
+# systemd-inhibit blocks idle-blanking and sleep for as long as Chromium runs
+systemd-inhibit --what=idle:sleep --who=pond --why="Installation running" \
 chromium-browser \
   --kiosk \
   --noerrdialogs \

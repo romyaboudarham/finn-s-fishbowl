@@ -16,6 +16,13 @@ folder on localhost, and shows the page fullscreen in Chromium. No Node needed.
 After this the Pi joins `pond_sensor` (priority 100) whenever it's in range, so it
 will have no internet there. Use Ethernet or SSH over the home Wi-Fi for maintenance.
 
+## Staying awake
+
+`setup.sh` blocks sleep four ways: screen blanking off in `raspi-config`, the
+systemd sleep targets masked, an idle/sleep inhibitor held while Chromium runs, and
+Wi-Fi power saving off. Before an install, leave it running for 30 minutes with no
+input and confirm the projection is still on and the sensor still responds.
+
 ## Calibrating the projection
 
 1. Plug in a keyboard and mouse. Click the page once so it receives key presses.
