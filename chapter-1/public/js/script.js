@@ -8,6 +8,9 @@ function preload() {
 
 let show = false;
 
+//Opened as index.html?kiosk by the Raspberry Pi autostart
+const kiosk = new URLSearchParams(window.location.search).has('kiosk');
+
 //Connect directly to the Feather's websocket (its own Wi-Fi network is always 192.168.4.1)
 const FEATHER_URL = 'ws://192.168.4.1:81';
 
@@ -67,10 +70,24 @@ function setup() {
     quadMap.x -= quadMap.width / 2;
     quadMap.y -= quadMap.height / 2;
 
+    // Kiosk mode (?kiosk): hide the header, and restore the saved calibration
+    if (kiosk) document.getElementById("header").style.display = "none";
+    loadSavedMap();
+}
+
+// Only load maps/map.json if it exists, so a fresh checkout doesn't error
+function loadSavedMap() {
+    fetch("maps/map.json", { method: "HEAD" }).then(function (res) {
+        if (res.ok) pMapper.load("maps/map.json");
+    });
 }
 
 function draw() {
     background(0);
+    // Hide the cursor on the projection, but keep it for dragging corners
+    if (kiosk) {
+        if (isCalibratingMapper()) cursor(); else noCursor();
+    }
     //Always show the pond while calibrating so the corners can be dragged
     if (show || isCalibratingMapper()) {
         tint(255, fade);
